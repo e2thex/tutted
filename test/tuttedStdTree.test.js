@@ -309,7 +309,7 @@ describe("@module tuttedStd @is a module that helps to build a standard tutted t
       });
     });
   });
-  describe("The @function .property() @is a method to generate a property branch used for propertyeters and properties", function() {
+  describe.skip("The @function .property() @is a method to generate a property branch used for propertyeters and properties", function() {
      var branch = tuttedStd.property();
     describe("should @return a @type TuttedStdTreeParam", function() {
       it("return object should have @property name of @type string which defaults to ''", function() {
