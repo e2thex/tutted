@@ -28,7 +28,6 @@ describe("@module tuttedStd @is a module that helps to build a standard tutted t
       (function() {
         var root = tuttedStd.root();
         root.__defineGetter__("kind", function() { return 'bob'});
-        console.log(root.kind);
           tuttedStd.root.validate(root);
       }).should.throw("Invalid tuttedStdTreeBranch root: kind is bob shoud be root");
     });

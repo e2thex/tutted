@@ -1,5 +1,6 @@
 var tuttedStdParser = require("../lib/tuttedStdParser.js");
 var tuttedStdTree = require("../lib/tuttedStdTree.js");
+var core = require("../tutted.js");
 var BranchMethodMissingThrows = function(branch, method, validator) {
   (function() {
   branch[method] = undefined;
@@ -7,7 +8,7 @@ var BranchMethodMissingThrows = function(branch, method, validator) {
   }).should.throw("Invalid tuttedStdTreeBranch "+ branch.kind +": missing "+method+" Method")
 }
 
-describe.only("@module tuttedStdParser @is a module that helps to build a standard tutted tree form exploded lines", function() {
+describe("@module tuttedStdParser @is a module that helps to build a standard tutted tree form exploded lines", function() {
   describe("@function tuttedStdParser @constructs TuttedStdParserFunction , it @is a function that creates a parser for stdRoot branches", function() {
     it("should be a function", function() {
       tuttedStdParser.should.be.a.function;
@@ -98,4 +99,5 @@ describe.only("@module tuttedStdParser @is a module that helps to build a standa
       });
     });
   });
+
 });
