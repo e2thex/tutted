@@ -69,6 +69,44 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
       });
     });
   });
+  describe("@function tuttedStdParser.module @constructs TuttedStdParserFunction, it @is a function that creates a parser for stdModule branchs.", function() {
+    it("should be a function", function() {
+      tuttedStdParser.module.should.be.a.function;
+    });
+    it("should accept @param branch of @type TuttedStdTreeModule which @is the branch root it will use", function() {
+      var branch = tuttedStdTree.module("functioname");
+      (function() {
+        tuttedStdParser.module(branch);
+      }).should.not.throw();
+    });
+      var branch = tuttedStdTree.module("modulename");
+    var parser = tuttedStdParser.module(branch);
+    it("its @method closedBy should return true for '@module'", function() {
+      parser.closedBy("@module").should.be.true;
+    });
+    it("its @method accepts should return true for '@function'", function() {
+      parser.accepts("@function").should.be.true;
+    });
+    describe("describe for the line '@function functionName iscool thing' @method execute", function() {
+      it("should return new parser for function", function() {
+          parser.execute({tag:"@function", first:"functionName"}).should.not.be.false;
+      });
+      it("Should add a param to the branch", function() {
+        parser.getTree().getFunctions()[0].getName().should.equal("functionName");
+      });
+    });
+    it("its @method accepts should return true for '@is'", function() {
+      parser.accepts("@is").should.be.true;
+    });
+    describe("describe for the line '@is a cool thing' @method execute", function() {
+      it("should return false as it does not generate a new parser", function() {
+          parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
+      });
+      it("Should add a desc to the branch", function() {
+        parser.getTree().getDesc()[0].should.equal("a cool thing");
+      });
+    });
+  });
   describe("@fuction tuttedStdParser.param @constructs TuttedStdParserParam , it @is a function that creates a parser for stdParam branches", function() {
     it("should be a function", function() {
       tuttedStdParser.param.should.be.a.function;

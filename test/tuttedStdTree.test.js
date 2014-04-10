@@ -175,7 +175,11 @@ describe("@module tuttedStdTree @is a module that helps to build a standard tutt
       it("does not @return @type Array @func should @throw");
     });
   });
-  describe("The @function .module() @is a method to generate a method branch", function() {
+  describe("The @function tuttedStdTree.module() @is a method to generate a method branch", function() {
+    it("should accept @param name which @is the name of the module", function() {
+     var branch = tuttedStd.module("thisname");
+     branch.getName().should.equal("thisname");
+    });
     describe("should @return a @type TuttedStdTreeModule", function() {
      var branch = tuttedStd.module();
       it("return object should have @property kind of @type string which is @getOnly and defaults to 'module'", function() {
@@ -195,6 +199,11 @@ describe("@module tuttedStdTree @is a module that helps to build a standard tutt
       it("return object should have @property interfaces of @type Array which defaults to []", function() {
         branch.should.have.property('interfaces');
       });
+    });
+    it("the return addDesc should be return by getDesc",function() {
+      var branch = tuttedStd.module("this is the name");
+      branch.addDesc("this is a desc");
+      branch.getDesc()[0].should.equal("this is a desc");
     });
   });
   describe("The @function .param() @constructs TuttedStdTreeFunction", function() {

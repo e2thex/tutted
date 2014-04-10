@@ -98,6 +98,32 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
       markdown[3].should.not.equal("## Parameters");
       markdown[4].should.not.equal("| Name | Type | Desc |");
     });
-
+  });
+  describe("@function tuttedStdMarkdownRender.module", function() {
+    var tree = tuttedStdTree.module("NameOfModule");
+    tree.addDesc("This is module desc1");
+    tree.addDesc("This is module desc2");
+    var fuc1 = tuttedStdTree.function("fun1");
+    tree.addFunction(fuc1);
+    var level = 1;
+    var markdown = tuttedStdMarkdownRender.module(
+      tree, 
+      level, 
+      {
+        function:function(tree, level){ return ["function stuff", level]},
+      }
+    );
+    it("should start with a # with the title", function() {
+      markdown[0].should.equal("# Module `NameOfModule`");
+    });
+    it("should follow with the desc of the function", function() {
+      markdown[1].should.equal("This is module desc1");
+      markdown[2].should.equal("This is module desc2");
+    });
+    it.only("should return a heading for functions and the output of the function with level incremented by 2", function() {
+      markdown[3].should.equal("## Functions");
+      markdown[4].should.equal("function stuff");
+      markdown[5].should.equal(3);
+    });
   });
 })
