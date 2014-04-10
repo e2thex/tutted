@@ -27,7 +27,7 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
           parser.execute({tag:"@function", first:"name"}).getTree().getName().should.equal('name');
       });
       it("Should add a function to the branch", function() {
-        parser.getTree().getChildren()[0].getName().should.equal("name");
+        parser.getTree().getFunctions()[0].getName().should.equal("name");
       });
     });
   });
@@ -55,6 +55,17 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
       });
       it("Should add a desc to the branch", function() {
         parser.getTree().getDesc()[0].should.equal("a cool thing");
+      });
+    });
+    it("its @method accepts should return true for '@param'", function() {
+      parser.accepts("@param").should.be.true;
+    });
+    describe("describe for the line '@param Name iscool thing' @method execute", function() {
+      it("should return new parser for params", function() {
+          parser.execute({tag:"@param", first:"Name"}).should.not.be.false;
+      });
+      it("Should add a param to the branch", function() {
+        parser.getTree().getParams()[0].getName().should.equal("Name");
       });
     });
   });
@@ -100,4 +111,45 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
     });
   });
 
+  describe("@fuction tuttedStdParser.return @constructs TuttedStdParserReturn , it @is a function that creates a parser for stdReturn branches", function() {
+    it("should be a function", function() {
+      tuttedStdParser.return.should.be.a.function;
+    });
+    it("should accept @param branch of @type TuttedStdTreeReturn which @is the branch root it will be using", function() {
+      var branch = tuttedStdTree.return();
+      (function() {
+        tuttedStdParser.return(branch);
+      }).should.not.throw();
+    });
+    var branch = tuttedStdTree.return();
+    var parser = tuttedStdParser.return(branch);
+    it("its @method closedBy should return true for '@function'", function() {
+      parser.closedBy("@function").should.be.true;
+    });
+    it("its @method closedBy should return true for '@param'", function() {
+      parser.closedBy("@param").should.be.true;
+    });
+    it("its @method accepts should return true for '@is'", function() {
+      parser.accepts("@is").should.be.true;
+    });
+    describe("describe for the line '@is a cool thing' @method execute", function() {
+      it("should return false as it does not generate a new parser", function() {
+          parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
+      });
+      it("Should add a desc to the branch", function() {
+        parser.getTree().getDesc()[0].should.equal("a cool thing");
+      });
+    });
+    it("its @method accepts should return true for '@type'", function() {
+      parser.accepts("@type").should.be.true;
+    });
+    describe("describe for the line '@type Thing' @method execute", function() {
+      it("should return false as it does not generate a new parser", function() {
+          parser.execute({tag:"@type", first:"Thing"}).should.be.false;
+      });
+      it("Should add a desc to the branch", function() {
+        parser.getTree().getType().should.equal("Thing");
+      });
+    });
+  });
 });

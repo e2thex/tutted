@@ -1,7 +1,7 @@
 
 var tuttedStdMarkdownRender = require("../lib/tuttedStdMarkdownRender.js");
 var tuttedStdTree = require("../lib/tuttedStdTree.js");
-describe.only("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTree object in Markdown", function() {
+describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTree object in Markdown", function() {
   describe("@function tuttedStdMarkdownRender.param", function() {
     var tree = tuttedStdTree.param("Name of Param");
     tree.setType("paramType");
@@ -12,15 +12,33 @@ describe.only("@module tutteeStdMarkdownRender @is a module that renders a tutte
       tuttedStdMarkdownRender.param(tree)[0].should.equal("| Name of Param | paramType | Desc 1 Desc 2 |");
     });
   });
+  describe("@function tuttedStdMarkdownRender", function() {
+    var tree = tuttedStdTree();
+    var functionBranch1 = tuttedStdTree.function("function1");
+    var functionBranch2 = tuttedStdTree.function("function2");
+    tree.addFunction(functionBranch1);
+    tree.addFunction(functionBranch2);
+    var markdown = tuttedStdMarkdownRender(tree, {
+      "function": function(tree, level) { return [level, tree.getName()];}
+    });
+    it("should generate a rows for each function in the true using the function render method and a base level of 1", function() {
+      markdown[0].should.equal(1);
+      markdown[1].should.equal("function1");
+      markdown[2].should.equal(1);
+      markdown[3].should.equal("function2");
+    });
+
+    
+  });
   describe("@function tuttedStdMarkdownRender.return", function() {
     var tree = tuttedStdTree.return();
     tree.setType("returnType");
     tree.addDesc("Desc 1");
     tree.addDesc("Desc 2");
-    var level = 1;
+    var level = 2;
     var markdown = tuttedStdMarkdownRender.return(tree, level);
     it("should generate a row with a next level header with type in italics", function() {
-      markdown[0].should.equal("h1. -returnType-");
+      markdown[0].should.equal("## *returnType*");
     });
     it("should generate a row for each desc", function() {
       markdown[1].should.equal("Desc 1");
@@ -51,20 +69,35 @@ describe.only("@module tutteeStdMarkdownRender @is a module that renders a tutte
       }
     );
     it("should start with a h# with the title", function() {
-      markdown[0].should.equal("h1. Function `NameOfFunction`");
+      markdown[0].should.equal("# Function `NameOfFunction`");
     });
     it("should follow with the desc of the function", function() {
       markdown[1].should.equal("This is function desc1");
       markdown[2].should.equal("This is function desc2");
     });
     it("should return a table of the params as render by the @param renders of @type opbject, if there are params after a header for parameters", function() {
-      markdown[3].should.equal("h2. Parameters");
+      markdown[3].should.equal("## Parameters");
       markdown[4].should.equal("| Name | Type | Desc |");
-      markdown[5].should.equal("stuff");
+      markdown[5].should.equal("|:---- |:---- |:---- |");
+      markdown[6].should.equal("stuff");
     });
     it("should return a return a section based on the return render", function() {
-      markdown[6].should.equal("stuff from return");
-      markdown[7].should.equal("stuff");
+      markdown[7].should.equal("stuff from return");
+      markdown[8].should.equal("stuff");
     });
+    tree.getParams = function() {return []};
+    var markdown1 = tuttedStdMarkdownRender.function(
+      tree, 
+      level, 
+      {
+        param:function(){ return ["stuff"]},
+        return:function(){ return ["stuff from return", "stuff"]}
+      }
+    );
+    it("should not print the Param parts if there are no paramaters rendered", function() {
+      markdown[3].should.not.equal("## Parameters");
+      markdown[4].should.not.equal("| Name | Type | Desc |");
+    });
+
   });
 })

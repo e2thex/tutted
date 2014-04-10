@@ -6,18 +6,18 @@ var BranchMethodMissingThrows = function(branch, method, validator) {
   }).should.throw("Invalid tuttedStdTreeBranch "+ branch.kind +": missing "+method+" Method")
 }
 
-describe("@module tuttedStd @is a module that helps to build a standard tutted tree", function() {
-  describe("The @function .root() @constructs TuttedStdTreeRoot ", function() {
+describe("@module tuttedStdTree @is a module that helps to build a standard tutted tree", function() {
+  describe("The @function tuttedStdTree.root() @constructs TuttedStdTreeRoot it @is used to create the base of the Std Code Tree", function() {
     describe("should @return a @type TuttedStdTreeRoot", function() {
      var branch = tuttedStd.root();
-      it("return object should have @property kind of @type string which defaults to 'root' and is @immutable", function() {
+      it("return object should have @property kind of type string which defaults to 'root' and is @immutable", function() {
        branch.should.have.property('kind', 'root');
        branch.kind = "bob";
        branch.kind.should.equal("root");
       });
     });
   });
-  describe("The @function .root.validate() @validates TuttedStdTreeRoot ", function() {
+  describe("The @function tuttedStdTree.root.validate() @validates TuttedStdTreeRoot ", function() {
     it("should not throw an error if a correct root", function() {
       (function() {
         var root = tuttedStd.root();
@@ -39,6 +39,32 @@ describe("@module tuttedStd @is a module that helps to build a standard tutted t
         root.__defineSetter__("kind", function(n) { name = n;});
         tuttedStd.root.validate(root);
       }).should.throw("Invalid tuttedStdTreeBranch root: kind is muttable");
+    });
+    describe("if @method getFunctions", function() {
+      it("does not exists the @func should @throw", function() {
+        BranchMethodMissingThrows(tuttedStd.root(), "getFunctions", tuttedStd.root.validate);
+      });
+      it("does not @return @type Array @func should @throw");
+    });
+    describe("if @method addFunction", function() {
+      it("does not exists the @func should @throw", function() {
+      BranchMethodMissingThrows(tuttedStd.root(), "addFunction", tuttedStd.root.validate);
+        
+      });
+      it("does not accept @param child of @type TuttedStdTreeFunction|TuttedStdTreeModule @func should @throw");
+    });
+    describe("if @method getModules", function() {
+      it("does not exists the @func should @throw", function() {
+        BranchMethodMissingThrows(tuttedStd.root(), "getModules", tuttedStd.root.validate);
+      });
+      it("does not @return @type Array @func should @throw");
+    });
+    describe("if @method addModule", function() {
+      it("does not exists the @func should @throw", function() {
+      BranchMethodMissingThrows(tuttedStd.root(), "addModule", tuttedStd.root.validate);
+        
+      });
+      it("does not accept @param child of @type TuttedStdTreeFunction|TuttedStdTreeModule @func should @throw");
     });
     describe("if @method getChildren", function() {
       it("does not exists the @func should @throw", function() {
