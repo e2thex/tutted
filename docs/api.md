@@ -1,3 +1,130 @@
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[]
+[]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[]
+[]
 # Function `tuttedStdTree.root()`
 used to create the base of the Std Code Tree
 ## Returns *TuttedStdTreeRoot*
@@ -18,9 +145,13 @@ used to create the base of the Std Code Tree
 | param | String |  |
 | param | String |  |
 ## Returns *Array*
-# Function `.module()`
+# Function `tuttedStdTree.module()`
 a method to generate a method branch
-## Returns *Array*
+## Parameters
+| Name | Type | Desc |
+|:---- |:---- |:---- |
+| name | undefined | the name of the module |
+## Returns *string*
 # Function `.param()`
 # Function `.param.validate()`
 ## Parameters
@@ -35,6 +166,126 @@ a method to generate a method branch
 # Function `.property()`
 a method to generate a property branch used for propertyeters and properties
 ## Returns *Array*
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[]
+[]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[ { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] },
+  { getDesc: [Function],
+    addDesc: [Function],
+    getType: [Function],
+    getName: [Function],
+    setType: [Function],
+    kind: [Getter] } ]
+[]
+[]
+[]
 # Function `tuttedStdTree.root()`
 used to create the base of the Std Code Tree
 ## Returns *TuttedStdTreeRoot*
@@ -55,9 +306,13 @@ used to create the base of the Std Code Tree
 | param | String |  |
 | param | String |  |
 ## Returns *Array*
-# Function `.module()`
+# Function `tuttedStdTree.module()`
 a method to generate a method branch
-## Returns *Array*
+## Parameters
+| Name | Type | Desc |
+|:---- |:---- |:---- |
+| name | undefined | the name of the module |
+## Returns *string*
 # Function `.param()`
 # Function `.param.validate()`
 ## Parameters
