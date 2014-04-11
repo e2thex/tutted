@@ -9,7 +9,7 @@ var BranchMethodMissingThrows = function(branch, method, validator) {
 }
 
 describe("@module tuttedStdParser @is a module that helps to build a standard tutted tree form exploded lines", function() {
-  describe("@function tuttedStdParser @constructs TuttedStdParserFunction , it @is a function that creates a parser for stdRoot branches", function() {
+  describe("@function tuttedStdParser @constructs TuttedStdParser , it @is a function that creates a parser for stdRoot branches", function() {
     it("should be a function", function() {
       tuttedStdParser.should.be.a.function;
     });
@@ -28,6 +28,17 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
       });
       it("Should add a function to the branch", function() {
         parser.getTree().getFunctions()[0].getName().should.equal("name");
+      });
+    });
+    it("its @method accepts should return true for '@module'", function() {
+      parser.accepts("@module").should.be.true;
+    });
+    describe("describe for the line '@module functionname' @method execute", function() {
+      it("should return new function parser", function() {
+          parser.execute({tag:"@module", first:"name"}).getTree().getName().should.equal('name');
+      });
+      it("Should add a module to the branch", function() {
+        parser.getTree().getModules()[0].getName().should.equal("name");
       });
     });
   });

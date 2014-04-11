@@ -187,18 +187,6 @@ describe("@module tuttedStdTree @is a module that helps to build a standard tutt
          branch.kind = "bob";
          branch.kind.should.equal("module");
       });
-      it("return object should have @property name of @type string which defaults to ''", function() {
-        branch.should.have.property('name', '');
-      });
-      it("return object should have @property is of @type Array which defaults to []", function() {
-        branch.should.have.property('is');
-      });
-      it("return object should have @property functions of @type Array which defaults to []", function() {
-        branch.should.have.property('functions');
-      });
-      it("return object should have @property interfaces of @type Array which defaults to []", function() {
-        branch.should.have.property('interfaces');
-      });
     });
     it("the return addDesc should be return by getDesc",function() {
       var branch = tuttedStd.module("this is the name");

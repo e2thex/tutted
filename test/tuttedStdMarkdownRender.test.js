@@ -38,7 +38,7 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
     var level = 2;
     var markdown = tuttedStdMarkdownRender.return(tree, level);
     it("should generate a row with a next level header with type in italics", function() {
-      markdown[0].should.equal("## *returnType*");
+      markdown[0].should.equal("## Returns *returnType*");
     });
     it("should generate a row for each desc", function() {
       markdown[1].should.equal("Desc 1");
@@ -85,9 +85,10 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
       markdown[7].should.equal("stuff from return");
       markdown[8].should.equal("stuff");
     });
-    tree.getParams = function() {return []};
+    var tree1 = tree;
+    tree1.getParams = function() {return []};
     var markdown1 = tuttedStdMarkdownRender.function(
-      tree, 
+      tree1, 
       level, 
       {
         param:function(){ return ["stuff"]},
@@ -95,8 +96,8 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
       }
     );
     it("should not print the Param parts if there are no paramaters rendered", function() {
-      markdown[3].should.not.equal("## Parameters");
-      markdown[4].should.not.equal("| Name | Type | Desc |");
+      markdown1[3].should.equal("stuff from return");
+      markdown1[4].should.equal("stuff");
     });
   });
   describe("@function tuttedStdMarkdownRender.module", function() {
@@ -120,7 +121,7 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
       markdown[1].should.equal("This is module desc1");
       markdown[2].should.equal("This is module desc2");
     });
-    it.only("should return a heading for functions and the output of the function with level incremented by 2", function() {
+    it("should return a heading for functions and the output of the function with level incremented by 2", function() {
       markdown[3].should.equal("## Functions");
       markdown[4].should.equal("function stuff");
       markdown[5].should.equal(3);
