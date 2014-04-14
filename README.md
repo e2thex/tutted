@@ -49,4 +49,4 @@ the return setReturn should be return by getReturn
 
 ----
 
-To See more examples look at the test file [tuttedStdTree.test.js](./test/tuttedStdTree.test.js) and the [docs](./docs/api.md)
+To See more examples look at the test file [tuttedStdTree.test.js](./test/tuttedStdTree.test.js) and the [tuttedStdTree Docs](./docs/tuttedStdTree.md)
