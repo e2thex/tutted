@@ -8,21 +8,21 @@ var BranchMethodMissingThrows = function(branch, method, validator) {
   }).should.throw("Invalid tuttedStdTreeBranch "+ branch.kind +": missing "+method+" Method")
 }
 
-describe("@module tuttedStdParser @is a module that helps to build a standard tutted tree form exploded lines", function() {
-  describe("@function tuttedStdParser @constructs TuttedStdParser , it @is a function that creates a parser for stdRoot branches", function() {
+describe("@module tuttedStdParser @is a module that helps to build a standard tutted tree from test that have been explode in to tagged lines", function() {
+  describe("@function tuttedStdParser @constructs TuttedStdParser , it @is a function that creates a parser for stdRoot branches it is the parser function that is passed to tutted to parse a whole array of tagged lines", function() {
     it("should be a function", function() {
       tuttedStdParser.should.be.a.function;
     });
     var parser = tuttedStdParser();
-    it("its @method closedBy should return false", function() {
+    it("its method closedBy should return false", function() {
       parser.closedBy("@function").should.be.false;
       parser.closedBy("@is").should.be.false;
       parser.closedBy("@module").should.be.false;
     });
-    it("its @method accepts should return true for '@function'", function() {
+    it("its method accepts should return true for '{at}function'", function() {
       parser.accepts("@function").should.be.true;
     });
-    describe("describe for the line '@function functionname' @method execute", function() {
+    describe("describe for the line '{at}function functionname' method execute", function() {
       it("should return new function parser", function() {
           parser.execute({tag:"@function", first:"name"}).getTree().getName().should.equal('name');
       });
@@ -30,10 +30,10 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getFunctions()[0].getName().should.equal("name");
       });
     });
-    it("its @method accepts should return true for '@module'", function() {
+    it("its method accepts should return true for '{at}module'", function() {
       parser.accepts("@module").should.be.true;
     });
-    describe("describe for the line '@module functionname' @method execute", function() {
+    describe("describe for the line '{at}module functionname' method execute", function() {
       it("should return new function parser", function() {
           parser.execute({tag:"@module", first:"name"}).getTree().getName().should.equal('name');
       });
@@ -54,13 +54,13 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
     });
       var branch = tuttedStdTree.function("functioname");
     var parser = tuttedStdParser.function(branch);
-    it("its @method closedBy should return true for '@function'", function() {
+    it("its method closedBy should return true for '@function'", function() {
       parser.closedBy("@function").should.be.true;
     });
-    it("its @method accepts should return true for '@is'", function() {
+    it("its method accepts should return true for '@is'", function() {
       parser.accepts("@is").should.be.true;
     });
-    describe("describe for the line '@is a cool thing' @method execute", function() {
+    describe("describe for the line '{at}is a cool thing' method execute", function() {
       it("should return false as it does not generate a new parser", function() {
           parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
       });
@@ -68,10 +68,10 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getDesc()[0].should.equal("a cool thing");
       });
     });
-    it("its @method accepts should return true for '@param'", function() {
+    it("its method accepts should return true for '{at}param'", function() {
       parser.accepts("@param").should.be.true;
     });
-    describe("describe for the line '@param Name iscool thing' @method execute", function() {
+    describe("describe for the line '@{at}param Name iscool thing' method execute", function() {
       it("should return new parser for params", function() {
           parser.execute({tag:"@param", first:"Name"}).should.not.be.false;
       });
@@ -92,13 +92,13 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
     });
       var branch = tuttedStdTree.module("modulename");
     var parser = tuttedStdParser.module(branch);
-    it("its @method closedBy should return true for '@module'", function() {
+    it("its method closedBy should return true for '{at}module'", function() {
       parser.closedBy("@module").should.be.true;
     });
-    it("its @method accepts should return true for '@function'", function() {
+    it("its method accepts should return true for '{at}function'", function() {
       parser.accepts("@function").should.be.true;
     });
-    describe("describe for the line '@function functionName iscool thing' @method execute", function() {
+    describe("describe for the line '{at}function functionName iscool thing' method execute", function() {
       it("should return new parser for function", function() {
           parser.execute({tag:"@function", first:"functionName"}).should.not.be.false;
       });
@@ -106,10 +106,10 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getFunctions()[0].getName().should.equal("functionName");
       });
     });
-    it("its @method accepts should return true for '@is'", function() {
+    it("its method accepts should return true for '{at}is'", function() {
       parser.accepts("@is").should.be.true;
     });
-    describe("describe for the line '@is a cool thing' @method execute", function() {
+    describe("describe for the line '{at}is a cool thing' method execute", function() {
       it("should return false as it does not generate a new parser", function() {
           parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
       });
@@ -130,16 +130,16 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
     });
       var branch = tuttedStdTree.param("paramname");
     var parser = tuttedStdParser.param(branch);
-    it("its @method closedBy should return true for '@function'", function() {
+    it("its method closedBy should return true for '{at}function'", function() {
       parser.closedBy("@function").should.be.true;
     });
-    it("its @method closedBy should return true for '@param'", function() {
+    it("its method closedBy should return true for '{at}param'", function() {
       parser.closedBy("@param").should.be.true;
     });
-    it("its @method accepts should return true for '@is'", function() {
+    it("its method accepts should return true for '{at}is'", function() {
       parser.accepts("@is").should.be.true;
     });
-    describe("describe for the line '@is a cool thing' @method execute", function() {
+    describe("describe for the line '{at}is a cool thing' method execute", function() {
       it("should return false as it does not generate a new parser", function() {
           parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
       });
@@ -147,10 +147,10 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getDesc()[0].should.equal("a cool thing");
       });
     });
-    it("its @method accepts should return true for '@type'", function() {
+    it("its method accepts should return true for '{at}type'", function() {
       parser.accepts("@type").should.be.true;
     });
-    describe("describe for the line '@type Thing' @method execute", function() {
+    describe("describe for the line '{at}type Thing' method execute", function() {
       it("should return false as it does not generate a new parser", function() {
           parser.execute({tag:"@type", first:"Thing"}).should.be.false;
       });
@@ -172,16 +172,16 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
     });
     var branch = tuttedStdTree.return();
     var parser = tuttedStdParser.return(branch);
-    it("its @method closedBy should return true for '@function'", function() {
+    it("its method closedBy should return true for '{at}function'", function() {
       parser.closedBy("@function").should.be.true;
     });
-    it("its @method closedBy should return true for '@param'", function() {
+    it("its method closedBy should return true for '{at}param'", function() {
       parser.closedBy("@param").should.be.true;
     });
-    it("its @method accepts should return true for '@is'", function() {
+    it("its method accepts should return true for '{at}is'", function() {
       parser.accepts("@is").should.be.true;
     });
-    describe("describe for the line '@is a cool thing' @method execute", function() {
+    describe("describe for the line '{at}is a cool thing' method execute", function() {
       it("should return false as it does not generate a new parser", function() {
           parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
       });
@@ -189,10 +189,10 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getDesc()[0].should.equal("a cool thing");
       });
     });
-    it("its @method accepts should return true for '@type'", function() {
+    it("its method accepts should return true for '{at}type'", function() {
       parser.accepts("@type").should.be.true;
     });
-    describe("describe for the line '@type Thing' @method execute", function() {
+    describe("describe for the line '{at}type Thing' method execute", function() {
       it("should return false as it does not generate a new parser", function() {
           parser.execute({tag:"@type", first:"Thing"}).should.be.false;
       });
