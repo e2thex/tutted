@@ -52,7 +52,6 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
       listOfTags.indexOf("@type").should.not.equal(-1);
     });
   });
-  
   describe("@function tuttedStdParser.function @constructs TuttedStdParserFunction , it @is a function that creates a parser for stdFunction branches", function() {
     it("should be a function", function() {
       tuttedStdParser.function.should.be.a.function;
