@@ -49,6 +49,7 @@ describe("@module tutted @is a module with function for parsing and render test 
     describe("@returns a @type Object which @is an that is a tree of the parsed data", function() {
     });
   });
+  /*
   describe("@function tutted.parser.validate @validates tuttedParser which @is a function to ensure an object is a parser", function() {
     it("should be a function", function() {
       tutted.parser.validate.should.be.a.function;
@@ -57,6 +58,7 @@ describe("@module tutted @is a module with function for parsing and render test 
     it("should @throw 'Invalid tuttedParser: missing accepts' if @method accepts is missing ");
     it("should @throw 'Invalid tuttedParser: missing execute' if @method execute is missing ");
   });
+  */
 
   describe("@function tutted.stdParse @is a function that used the std parser to parse a set of tests.", function() {
   var tests = [

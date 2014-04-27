@@ -41,7 +41,18 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getModules()[0].getName().should.equal("name");
       });
     });
+    it("method listOfTags should return all tags for this parser and childresn", function() {
+      var parser = tuttedStdParser();
+      var listOfTags = parser.listOfTags();
+      listOfTags.indexOf("@module").should.not.equal(-1);
+      listOfTags.indexOf("@function").should.not.equal(-1);
+      listOfTags.indexOf("@param").should.not.equal(-1);
+      listOfTags.indexOf("@return").should.not.equal(-1);
+      listOfTags.indexOf("@is").should.not.equal(-1);
+      listOfTags.indexOf("@type").should.not.equal(-1);
+    });
   });
+  
   describe("@function tuttedStdParser.function @constructs TuttedStdParserFunction , it @is a function that creates a parser for stdFunction branches", function() {
     it("should be a function", function() {
       tuttedStdParser.function.should.be.a.function;

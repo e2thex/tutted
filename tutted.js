@@ -48,15 +48,9 @@ var tutted = function() {
     });
     return parser.getTree();
   }
-  m.parser = {};
-  m.parser.validate = function tuttedParserValidate() {
-  }
-  m.stdParse = function tuttedStdParse(tests) {
-    var tags = ["@function", "@param", "@is", "@type"];
-    return m.parses(tuttedStdParser(), m.explodeTests(tests, tags));
-  }
-  m.process = function tutteeProcess(tests, parser, tags, render) {
-    return render(m.parses(parser(), m.explodeTests(tests, tags)));
+  m.process = function tutteeProcess(tests, parser, render) {
+    var listOfTags = parser.listOfTags();
+    return render(m.parses(parser, m.explodeTests(tests, listOfTags)));
   };
   return m;
 };
