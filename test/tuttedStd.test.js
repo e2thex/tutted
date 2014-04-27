@@ -1,4 +1,4 @@
-var tutted = require("../tutted.js");
+var tutted = require("../lib/tuttedStd.js");
 describe("@module tutted @is a module with function for parsing and render test as api documentation", function() {
   describe("@function explodeTests @is a fuction to take test and brake them up on tags", function() {
     it("has a @param tests of @type Array which @is a list of test lines", function() {
