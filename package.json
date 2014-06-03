@@ -1,0 +1,24 @@
+{
+  "author": "e2thex (e2thex.org)",
+  "name": "tutted",
+  "description": "Tutted Uses Tagged Test to Establish Documentation",
+  "version": "0.0.0",
+  "homepage": "https://github.com/e2thex/tutted",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/e2thex/tutted.git"
+  },
+  "main": "tutted.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha" : "",
+    "should": ""
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
