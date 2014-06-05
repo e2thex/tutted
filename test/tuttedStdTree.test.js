@@ -216,6 +216,23 @@ describe("@module tuttedStdTree @is a module that helps to build a standard tutt
      branch.getName().should.equal("this is the name");
     });
   });
+  describe("The @function tuttedStdTree.throw() @constructs TuttedStdTreeThrow", function() {
+    it("should @return a @type TuttedStdTreeThrow",function() {
+     (function() {
+       tuttedStd.throw.validate(tuttedStd.throw());
+     }).should.not.throw();
+    });
+    it("@is the return addDesc should be return by getDesc",function() {
+      var branch = tuttedStd.throw("this is the name");
+      branch.addDesc("this is a desc");
+      branch.getDesc()[0].should.equal("this is a desc");
+    });
+    it("@is the return setType should be return by getType",function() {
+      var branch = tuttedStd.throw("this is the name");
+      branch.setType("this is a return");
+      branch.getType().should.equal("this is a return");
+    });
+  });
   describe("The @function .param.validate() @validates TuttedStdTreeFunction", function() {
     it("should not throw an error if a correct param is passed", function() {
       (function() {

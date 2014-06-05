@@ -113,8 +113,18 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
     tree.addDesc("Desc 1");
     tree.addDesc("Desc 2");
     var level = 0;
-    it("should generate a row with name type desc", function() {
+    it("should generate a row with type and desc", function() {
       tuttedStdMarkdownRender.param(tree)[0].should.equal("| Name of Param | paramType | Desc 1 Desc 2 |");
+    });
+  });
+  describe("@function tuttedStdMarkdownRender.throw", function() {
+    var tree = tuttedStdTree.throw();
+    tree.setType("throwType");
+    tree.addDesc("Desc 1");
+    tree.addDesc("Desc 2");
+    var level = 0;
+    it("should generate a row with name type desc", function() {
+      tuttedStdMarkdownRender.throw(tree)[0].should.equal("| throwType | Desc 1 Desc 2 |");
     });
   });
   describe("@function tuttedStdMarkdownRender.return", function() {

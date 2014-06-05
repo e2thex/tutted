@@ -211,4 +211,49 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
       });
     });
   });
+
+  describe("@fuction tuttedStdParser.throw @constructs TuttedStdParserThrow , it @is a function that creates a parser for stdThrow branches", function() {
+    it("should be a function", function() {
+      tuttedStdParser.throw.should.be.a.function;
+    });
+    it("should accept @param branch of @type TuttedStdTreeThrow which @is the branch root it will use", function() {
+      var branch = tuttedStdTree.throw();
+      (function() {
+        tuttedStdParser.throw(branch);
+      }).should.not.throw();
+    });
+    var branch = tuttedStdTree.throw();
+    var parser = tuttedStdParser.throw(branch);
+    it("its method closedBy should return true for '{at}function'", function() {
+      parser.closedBy("@function").should.be.true;
+    });
+    it("its method closedBy should return true for '{at}param'", function() {
+      parser.closedBy("@param").should.be.true;
+    });
+    it("its method closedBy should return true for '{at}throw'", function() {
+      parser.closedBy("@throw").should.be.true;
+    });
+    it("its method accepts should return true for '{at}is'", function() {
+      parser.accepts("@is").should.be.true;
+    });
+    describe("describe for the line '{at}is a cool thing' method execute", function() {
+      it("should return false as it does not generate a new parser", function() {
+        parser.execute({tag:"@is", text:"a cool thing"}).should.be.false;
+      });
+      it("Should add a desc to the branch", function() {
+        parser.getTree().getDesc()[0].should.equal("a cool thing");
+      });
+    });
+    it("its method accepts should return true for '{at}type'", function() {
+      parser.accepts("@type").should.be.true;
+    });
+    describe("describe for the line '{at}type Thing' method execute", function() {
+      it("should return false as it does not generate a new parser", function() {
+          parser.execute({tag:"@type", first:"Thing"}).should.be.false;
+      });
+      it("Should add a desc to the branch", function() {
+        parser.getTree().getType().should.equal("Thing");
+      });
+    });
+  });
 });
