@@ -65,6 +65,7 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
     rtn.setType("returnType");
     rtn.addDesc("Desc 1");
     rtn.addDesc("Desc 2");
+    tree.addThrow(tuttedStdTree.throw());
     tree.setReturn(rtn);
     var level = 1;
     var markdown = tuttedStdMarkdownRender.function(
@@ -72,6 +73,7 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
       level, 
       {
         param:function(){ return ["stuff"]},
+        throw:function(){ return ["tstuff"]},
         return:function(){ return ["stuff from return", "stuff"]}
       }
     );
@@ -88,21 +90,29 @@ describe("@module tutteeStdMarkdownRender @is a module that renders a tutteStdTr
       markdown[5].should.equal("|:---- |:---- |:---- |");
       markdown[6].should.equal("stuff");
     });
+    it("should return a table of the throws as render by the @throw renders of @type object, if there are throws after a header for throws", function() {
+      markdown[7].should.equal("## Throws");
+      markdown[8].should.equal("| Type | Desc |");
+      markdown[9].should.equal("|:---- |:---- |");
+      markdown[10].should.equal("tstuff");
+    });
     it("should return a return a section based on the return render", function() {
-      markdown[7].should.equal("stuff from return");
-      markdown[8].should.equal("stuff");
+      markdown[11].should.equal("stuff from return");
+      markdown[12].should.equal("stuff");
     });
     var tree1 = tree;
     tree1.getParams = function() {return []};
+    tree1.getThrows = function() {return []};
     var markdown1 = tuttedStdMarkdownRender.function(
       tree1, 
       level, 
       {
         param:function(){ return ["stuff"]},
+        throw:function(){ return ["stuff"]},
         return:function(){ return ["stuff from return", "stuff"]}
       }
     );
-    it("should not print the Param parts if there are no paramaters rendered", function() {
+    it("should not print the Param or Throw parts if there are no paramaters or Throws rendered", function() {
       markdown1[3].should.equal("stuff from return");
       markdown1[4].should.equal("stuff");
     });

@@ -89,6 +89,17 @@ describe("@module tuttedStdParser @is a module that helps to build a standard tu
         parser.getTree().getParams()[0].getName().should.equal("Name");
       });
     });
+    it("its method accepts should return true for '{at}throw'", function() {
+      parser.accepts("@throw").should.be.true;
+    });
+    describe("describe for the line '@{at}throw Name iscool thing' method execute", function() {
+      it("should return new parser for throws", function() {
+          parser.execute({tag:"@throw", first:"Name"}).should.not.be.false;
+      });
+      it("Should add a throw to the branch", function() {
+        parser.getTree().getThrows()[0].kind.should.equal("throw");
+      });
+    });
   });
   describe("@function tuttedStdParser.module @constructs TuttedStdParserFunction, it @is a function that creates a parser for stdModule branchs.", function() {
     it("should be a function", function() {

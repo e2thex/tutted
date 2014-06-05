@@ -96,6 +96,11 @@ describe("@module tuttedStdTree @is a module that helps to build a standard tutt
       branch.addParam("this is a param");
       branch.getParams()[0].should.equal("this is a param");
     });
+    it("@is the return addThrow should be return by getThrow",function() {
+      var branch = tuttedStd.function("this is the name");
+      branch.addParam("this is a throw");
+      branch.getParams()[0].should.equal("this is a throw");
+    });
     it("@is the return addDesc should be return by getDesc",function() {
       var branch = tuttedStd.function("this is the name");
       branch.addDesc("this is a desc");
@@ -142,6 +147,19 @@ describe("@module tuttedStdTree @is a module that helps to build a standard tutt
       });
       it("does not return type Array func should @throw");
       it("does not only accept param param of type TuttedStdTreeParam func should throw");
+    });
+    describe("if method getThrows", function() {
+      it("does not exists the func should throw", function() {
+        BranchMethodMissingThrows(tuttedStd.function(), "getThrows", tuttedStd.function.validate);
+      });
+      it("does not return type Array func should throw");
+    });
+    describe("if method addThrow", function() {
+      it("does not exists the func should throw", function() {
+        BranchMethodMissingThrows(tuttedStd.function(), "addThrow", tuttedStd.function.validate);
+      });
+      it("does not return type Array func should @throw");
+      it("does not only accept param param of type TuttedStdTreeThrow func should throw");
     });
     describe("if method getDesc", function() {
       it("does not exists the func should throw", function() {
