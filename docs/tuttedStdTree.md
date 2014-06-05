@@ -20,6 +20,7 @@ not throw an error if a correct root is passed
 | name | string | the name of the function and should be return by getName |
 #### Returns *TuttedStdTreeFunction*
 the return addParam should be return by get Param
+the return addThrow should be return by getThrow
 the return addDesc should be return by getDesc
 the return setReturn should be return by getReturn
 ### Function `.function.validate()`
@@ -38,6 +39,10 @@ the return addDesc should be return by getDesc
 |:---- |:---- |:---- |
 | name | string | the name of the param and should be return by getName |
 #### Returns *TuttedStdTreeParam*
+the return addDesc should be return by getDesc
+the return setType should be return by getType
+### Function `tuttedStdTree.throw()`
+#### Returns *TuttedStdTreeThrow*
 the return addDesc should be return by getDesc
 the return setType should be return by getType
 ### Function `.param.validate()`
@@ -68,6 +73,7 @@ not throw an error if a correct root is passed
 | name | string | the name of the function and should be return by getName |
 #### Returns *TuttedStdTreeFunction*
 the return addParam should be return by get Param
+the return addThrow should be return by getThrow
 the return addDesc should be return by getDesc
 the return setReturn should be return by getReturn
 ### Function `.function.validate()`
@@ -86,6 +92,10 @@ the return addDesc should be return by getDesc
 |:---- |:---- |:---- |
 | name | string | the name of the param and should be return by getName |
 #### Returns *TuttedStdTreeParam*
+the return addDesc should be return by getDesc
+the return setType should be return by getType
+### Function `tuttedStdTree.throw()`
+#### Returns *TuttedStdTreeThrow*
 the return addDesc should be return by getDesc
 the return setType should be return by getType
 ### Function `.param.validate()`

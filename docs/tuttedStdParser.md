@@ -18,7 +18,8 @@ a function that creates a parser for stdModule branchs.
 |:---- |:---- |:---- |
 | branch | TuttedStdTreeModule | the branch root it will use a function that creates a parser for stdParam branches |
 | branch | TuttedStdTreeParam | the branch root it will use a function that creates a parser for stdReturn branches |
-| branch | TuttedStdTreeReturn | the branch root it will be using |
+| branch | TuttedStdTreeReturn | the branch root it will be using a function that creates a parser for stdThrow branches |
+| branch | TuttedStdTreeThrow | the branch root it will use |
 # Module `tuttedStdParser`
 a module that helps to build a standard tutted tree from test that have been explode in to tagged lines
 ## Functions
@@ -39,4 +40,5 @@ a function that creates a parser for stdModule branchs.
 |:---- |:---- |:---- |
 | branch | TuttedStdTreeModule | the branch root it will use a function that creates a parser for stdParam branches |
 | branch | TuttedStdTreeParam | the branch root it will use a function that creates a parser for stdReturn branches |
-| branch | TuttedStdTreeReturn | the branch root it will be using |
+| branch | TuttedStdTreeReturn | the branch root it will be using a function that creates a parser for stdThrow branches |
+| branch | TuttedStdTreeThrow | the branch root it will use |
